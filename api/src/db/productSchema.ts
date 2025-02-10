@@ -17,4 +17,6 @@ export const productsTable = pgTable("products", {
 });
 
 export const createProductSchema = createInsertSchema(productsTable).omit({});
-export const updateProductSchema = createUpdateSchema(productsTable).omit({});
+export const updateProductSchema = createUpdateSchema(productsTable)
+  .omit({})
+  .partial();
