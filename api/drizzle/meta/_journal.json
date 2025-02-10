@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1739173948614,
-      "tag": "0000_sticky_joseph",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1739174072638,
-      "tag": "0001_short_stellaris",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1739174133289,
-      "tag": "0002_sharp_micromax",
+      "when": 1739179161312,
+      "tag": "0000_nasty_wendigo",
       "breakpoints": true
     }
   ]

@@ -7,6 +7,8 @@ import {
   updateProduct,
 } from "./productsController";
 import { validateData } from "../../middlewares/validationMiddleware";
+import { verifySeller, verifyToken } from "../../middlewares/authMiddleware";
+
 import { z } from "zod";
 import {
   createProductSchema,
@@ -17,8 +19,20 @@ export type ProductType = z.infer<typeof createProductSchema>;
 const router = Router();
 router.get("/", listProducts);
 router.get("/:id", getProductById);
-router.post("/", validateData(createProductSchema), createProduct);
-router.delete("/:id", deleteProduct);
-router.put("/:id", validateData(updateProductSchema), updateProduct);
+router.post(
+  "/",
+  verifyToken,
+  verifySeller,
+  validateData(createProductSchema),
+  createProduct
+);
+router.delete("/:id", verifyToken, verifySeller, deleteProduct);
+router.put(
+  "/:id",
+  verifyToken,
+  verifySeller,
+  validateData(updateProductSchema),
+  updateProduct
+);
 
 export default router;

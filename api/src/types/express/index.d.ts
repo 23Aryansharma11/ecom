@@ -5,6 +5,8 @@ declare global {
     export interface Request {
       cleanBody?: any;
       userId?: Number;
+      role?: "admin" | "user" | "seller";
+
     }
   }
 }
