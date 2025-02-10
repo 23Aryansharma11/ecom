@@ -1,6 +1,6 @@
 {
-  "id": "5c8e1d57-b697-410a-a523-c7bcd65242f3",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "17864aa1-b27b-41f2-bc9d-fc1ce139a9b1",
+  "prevId": "5c8e1d57-b697-410a-a523-c7bcd65242f3",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -55,6 +55,12 @@
           "primaryKey": false,
           "notNull": false,
           "default": 0
+        },
+        "discount": {
+          "name": "discount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
