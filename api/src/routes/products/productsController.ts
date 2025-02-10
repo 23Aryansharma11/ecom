@@ -53,7 +53,7 @@ export async function updateProduct(
 ) {
   try {
     const id = Number(req.params.id);
-    const updatedFields = req.body;
+    const updatedFields = req.cleanBody;
 
     const [product] = await db
       .update(productsTable)
