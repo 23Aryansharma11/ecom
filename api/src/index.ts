@@ -1,10 +1,10 @@
 import express from "express";
+import productRouter from "./routes/products";
+
 const port = process.env.PORT;
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+app.use("/product", productRouter);
 
 app.listen(port, () => {
   console.log(`Server running on Port: ${port}`);
