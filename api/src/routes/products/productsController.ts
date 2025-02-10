@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { db } from "../../db";
-import { productsTable } from "../../db/productSchema";
+import { productsTable, createProductSchema } from "../../db/productSchema";
 import { eq } from "drizzle-orm";
+import _ from "lodash";
 
 export async function listProducts(req: Request, res: Response) {
   try {
@@ -24,7 +25,8 @@ export async function getProductById(
       .where(eq(productsTable.id, Number(id)));
 
     if (!product) {
-      return res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "Product not found" });
+      return;
     }
 
     res.status(200).json(product);
@@ -37,7 +39,7 @@ export async function createProduct(req: Request, res: Response) {
   try {
     const [product] = await db
       .insert(productsTable)
-      .values(req.body)
+      .values(req.cleanBody)
       .returning();
     res.status(201).json(product);
   } catch (error) {
@@ -60,9 +62,11 @@ export async function updateProduct(
       .returning();
 
     if (product) {
-      return res.status(200).json(product);
+      res.status(200).json(product);
+      return;
     }
-    return res.status(404).json({ message: "Product Not found" });
+    res.status(404).json({ message: "Product Not found" });
+    return;
   } catch (error) {
     res.status(500).json({ error: "Something went wrong" });
   }
@@ -79,9 +83,11 @@ export async function deleteProduct(
       .where(eq(productsTable.id, Number(id)))
       .returning();
     if (deletedProduct) {
-      return res.status(204).json({ message: "Product Deleted" });
+      res.status(204).json({ message: "Product Deleted" });
+      return;
     }
-    return res.status(404).json({ message: "Product Not found" });
+    res.status(404).json({ message: "Product Not found" });
+    return;
   } catch (error) {
     res.status(500).json({ error: "Something went wrong" });
   }
