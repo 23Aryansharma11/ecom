@@ -14,7 +14,7 @@ backend:
     # The package manager used by the backend.
     packageManager: npm
   scripts:
-    deploy: npm install && npm run build
+    deploy: npm install && npm i typescript && npm run build
   # Information about the backend's functions.
   functions:
     # The name (label) of the function.
