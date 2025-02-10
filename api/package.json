@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch --import=tsx --env-file=.env src/index.ts",
+    "start": "node --env-file=.env dist/src/index.js",
     "build": "tsc",
     "db:generate": "npx drizzle-kit generate",
     "db:migrate": "npx drizzle-kit migrate"

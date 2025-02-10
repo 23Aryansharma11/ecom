@@ -1,8 +1,8 @@
 import express, { json, urlencoded } from "express";
-import productRouter from "./routes/products";
-import authRoutes from "./routes/auth";
+import productRouter from "./routes/products/index.js";
+import authRoutes from "./routes/auth/index.js";
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const app = express();
 app.use(json());
 app.use(urlencoded({ extended: true }));

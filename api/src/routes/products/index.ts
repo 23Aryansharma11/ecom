@@ -5,15 +5,15 @@ import {
   getProductById,
   listProducts,
   updateProduct,
-} from "./productsController";
-import { validateData } from "../../middlewares/validationMiddleware";
-import { verifySeller, verifyToken } from "../../middlewares/authMiddleware";
+} from "./productsController.js";
+import { validateData } from "../../middlewares/validationMiddleware.js";
+import { verifySeller, verifyToken } from "../../middlewares/authMiddleware.js";
 
 import { z } from "zod";
 import {
   createProductSchema,
   updateProductSchema,
-} from "../../db/productSchema";
+} from "../../db/productSchema.js";
 
 export type ProductType = z.infer<typeof createProductSchema>;
 const router = Router();
